@@ -62,7 +62,7 @@ def product(article_id: str, k: int = Query(12, ge=1, le=48)):
 
 
 @app.post("/api/search-by-image")
-async def search_by_image(file: UploadFile = File(...), k: int = Query(12, ge=1, le=48)):
+async def search_by_image(file: UploadFile = File(...), k: int = Query(12, ge=1, le=48)): #k = Number of similar products to return for the uploaded image.
     data = await file.read()
     try:
         return {"results": rs().similar_to_image(data, k)}
