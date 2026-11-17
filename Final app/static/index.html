@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>H&amp;M Recommender</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" type="image/png" href="/static/Logo/logo.png">
+</head>
+<body>
+  <header>
+    <nav><button class="tab active" data-view="shop">Shop</button><button class="tab" data-view="churn">Churn</button></nav>
+  </header>
+  <main id="shop-view">
+    <div class="upload-container">
+      <label class="upload" id="upload-btn">
+        Search by image
+        <input id="file" type="file" accept="image/*" hidden>
+      </label>
+    </div>
+
+    <section id="upload-section" hidden>
+      <h2>Visually similar to your upload</h2>
+      <div class="upload-row"><img id="preview" alt="your upload"><div id="upload-results" class="grid"></div></div>
+      <p id="upload-msg" class="msg"></p>
+    </section>
+    <section>
+      <h2>Best sellers</h2>
+      <div id="best" class="grid"></div>
+    </section>
+    <section>
+      <h2>Best sellers by category</h2>
+      <div id="by-cat"></div>
+    </section>
+  </main>
+  <main id="churn-view" hidden>
+    <p id="churn-error" class="msg"></p>
+    <div id="churn-body" hidden>
+      <div class="toolbar"><button id="add-cust" class="primary">+ Add Customer</button></div>
+      <div class="kpis" id="kpis"></div>
+      <p class="note" id="model-note"></p>
+      <div class="two">
+        <section><h2>Risk tiers</h2><div id="tiers" class="bars"></div></section>
+        <section><h2>Probability distribution</h2><div id="hist" class="hist"></div></section>
+      </div>
+      <div class="two">
+        <section><h2>Avg. predicted risk by newsletter status</h2><div id="by-news" class="bars"></div></section>
+        <section><h2>Top model drivers (feature importance)</h2><div id="drivers" class="bars"></div></section>
+      </div>
+      <section><h2>Highest-risk customers in the scored sample</h2><table id="risk-table"></table></section>
+      <section>
+        <h2>Customer lookup</h2>
+        <div class="lookup"><input id="cid" placeholder="customer id or prefix" list="cid-list" autocomplete="off">
+          <button id="cid-go">View</button><button id="cid-rand">Random customer</button></div>
+        <datalist id="cid-list"></datalist>
+        <p id="cust-msg" class="msg"></p>
+        <div id="cust" hidden>
+          <div class="cust-head"><div class="gauge"><div id="gauge-fill"></div></div><div><div id="prob" class="prob"></div><span id="tier-badge" class="badge"></span></div></div>
+          <div class="two"><div><h3>Customer information</h3><dl id="info"></dl></div><div><h3>Retention recommendations</h3><ul id="recs" class="recs"></ul></div></div>
+          <h3>Suggested products (best sellers in their preferred group)</h3><div id="sugg" class="grid"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div id="modal" hidden>
+    <div class="panel">
+      <button id="close" aria-label="close">&times;</button>
+      <div class="detail"><img id="m-img" alt=""><div id="m-info"></div></div>
+      <h3>Similar items</h3>
+      <div id="m-sim" class="grid"></div>
+    </div>
+  </div>
+  <div id="cform-modal" hidden>
+    <div class="panel">
+      <button id="cform-close" aria-label="close">&times;</button>
+      <h2>Add customer</h2>
+      <p class="msg">Enter the model's input features. Leave a field blank if unknown (treated as missing). No customer ID is needed.</p>
+      <form id="cform" novalidate>
+        <div id="cform-fields"></div>
+        <p id="cform-msg" class="msg"></p>
+        <div class="lookup"><button type="submit" id="cform-submit">Predict churn</button>
+          <button type="button" id="cform-example">Prefill from a sample customer</button>
+          <button type="button" id="cform-clear" class="ghost">Clear</button></div>
+      </form>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+  <script src="/static/churn.js"></script>
+  <script src="/static/churn_form.js"></script>
+</body>
+</html>
