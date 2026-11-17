@@ -73,11 +73,25 @@ Final app/
 ```
 
 ## Future Improvements
+- Improve Candidate Retrieval:
+Expand the candidate pool using collaborative filtering, user behavior, and hybrid retrieval techniques to capture more future purchases.
+
+- Enhance Ranking Performance:
+Experiment with advanced ranking models and additional customer-product interaction features to improve recommendation relevance.
+
+- Optimize Image-Based Recommendations:
+Fine-tune CLIP embeddings and explore multimodal approaches combining visual similarity with purchase history and product metadata.
+
+- Personalize Recommendations:
+Incorporate customer preferences, browsing behavior, and purchase history to deliver more personalized recommendations.
+
+- Improve Evaluation:
+Test on larger datasets and explore additional metrics such as NDCG@12, MAP@12, and coverage to assess recommendation quality.
 
 ## Deployment
-FastAPI backend + plain HTML/CSS/JS frontend for:
-- **Shop:** best sellers (overall and per category), similar items on click, and search by uploaded image (CLIP embeddings).
-- **Churn:** dashboard, customer lookup, and an "Add Customer" form that predicts churn with a Random Forest pipeline, plus retention recommendations.
+Python (<strong>FastAPI</strong>) backend with a lightweight frontend built using <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, providing two main modules:
+- Shop: Displays overall and category-based bestsellers, recommends similar products when an item is selected, and supports image-based product search using CLIP embeddings.
+- Churn Prediction: Provides an interactive dashboard, customer lookup, and an Add Customer form that predicts churn using a Random Forest pipeline, along with personalized retention recommendations.
 
 Runs locally at http://127.0.0.1:8000
 
