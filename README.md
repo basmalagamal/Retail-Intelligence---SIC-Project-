@@ -34,13 +34,42 @@ The project uses Python and machine learning and computer vision techniques. Spe
 
 ## Project Structure
 ```
-app/            FastAPI app (main.py), recommender (recsys.py), churn service (churn.py)
-static/         index.html, style.css, app.js, churn.js, churn_form.js
-models/         churn model + metadata (random_forest_model.joblib, feature_names.json, ...)
-scripts/        fetch_data.py (downloads the Kaggle dataset)
-tests/          API tests, UI test, synthetic fixture generator
-data/           dataset files (not committed)
-emb_clip.npy, ids_resnet.csv   CLIP embeddings and article ids (project root)
+Final app/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py                         # FastAPI application
+│   ├── recsys.py                       # Recommendation engine (CLIP similarity, best sellers)
+│   └── churn.py                        # Customer churn prediction service
+│
+├── static/
+│   ├── index.html                      # Main web interface
+│   ├── style.css                       # UI styling
+│   ├── app.js                          # Shop frontend logic
+│   ├── churn.js                        # Churn dashboard logic
+│   └── churn_form.js                   # Add Customer form
+│
+├── models/                             # Churn model and metadata
+│   ├── random_forest_model.joblib
+│   ├── feature_names.json
+│   ├── feature_schema.csv
+│   ├── model_parameters.json
+│   ├── evaluation_metrics.json
+│   ├── data_split_info.json
+│   └── churn_requirements.txt
+│
+├── data/                               # Dataset files
+│   ├── articles_sampled.csv
+│   ├── customers_sampled.csv
+│   ├── final_retrieval_comparison.csv
+│   ├── hybrid_recommendations.csv
+│   ├── transactions_sampled.csv
+│   └── images/
+|       └── ...
+│
+├── emb_clip.npy                       # CLIP image embeddings
+├── ids_resnet.csv                     # Article IDs, same order as the embeddings
+└── requirements.txt
 ```
 
 ## Future Improvements
