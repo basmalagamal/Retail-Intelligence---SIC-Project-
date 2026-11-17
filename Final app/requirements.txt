@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-multipart
+numpy==2.1.3
+pandas==2.3.3
+# churn model was pickled with these exact versions (see models/churn_requirements.txt)
+scikit-learn==1.6.1
+joblib==1.6.0
+pillow
+# image-upload search (CLIP, same model as Computer_vision.ipynb)
+torch
+transformers
+# data download
+kaggle
