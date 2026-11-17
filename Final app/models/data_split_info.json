@@ -1,0 +1,15 @@
+{
+  "random_state": 42,
+  "test_size": 0.2,
+  "stratified": true,
+  "train_rows": 861152,
+  "test_rows": 215289,
+  "train_class_counts": {
+    "1": 553226,
+    "0": 307926
+  },
+  "test_class_counts": {
+    "1": 138307,
+    "0": 76982
+  }
+}
