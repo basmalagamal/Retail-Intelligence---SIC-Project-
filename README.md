@@ -36,3 +36,8 @@ The project uses Python and machine learning and computer vision techniques. Spe
 
 ## Future Improvements
 
+## Application Demo
+https://github.com/user-attachments/assets/1633444b-5ca2-40ad-814f-1ff422a3bcd2
+
+## Automation Demo
+https://github.com/user-attachments/assets/fd2d4348-1018-462f-a5d0-b63b8e35863c
