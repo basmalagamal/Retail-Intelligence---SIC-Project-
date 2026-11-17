@@ -33,8 +33,36 @@ These data sources support customer behavior analysis, churn modeling, personali
 The project uses Python and machine learning and computer vision techniques. Specific libraries, frameworks, and tools will be documented as the implementation is finalized.
 
 ## Project Structure
+```
+app/            FastAPI app (main.py), recommender (recsys.py), churn service (churn.py)
+static/         index.html, style.css, app.js, churn.js, churn_form.js
+models/         churn model + metadata (random_forest_model.joblib, feature_names.json, ...)
+scripts/        fetch_data.py (downloads the Kaggle dataset)
+tests/          API tests, UI test, synthetic fixture generator
+data/           dataset files (not committed)
+emb_clip.npy, ids_resnet.csv   CLIP embeddings and article ids (project root)
+```
 
 ## Future Improvements
+
+## Deployment
+FastAPI backend + plain HTML/CSS/JS frontend for:
+- **Shop:** best sellers (overall and per category), similar items on click, and search by uploaded image (CLIP embeddings).
+- **Churn:** dashboard, customer lookup, and an "Add Customer" form that predicts churn with a Random Forest pipeline, plus retention recommendations.
+
+Runs locally at http://127.0.0.1:8000
+
+### API
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/bestsellers`, `/api/bestsellers/by-category` | Best sellers |
+| `GET /api/product/{article_id}` | Product + similar items |
+| `POST /api/search-by-image` | Visually similar products for an upload |
+| `GET /api/churn/summary` | Dashboard data |
+| `GET /api/churn/customer/{id}` | Churn prediction for an existing customer |
+| `GET /api/churn/schema`, `POST /api/churn/predict` | Add Customer form schema and prediction |
+
+Interactive docs: http://127.0.0.1:8000/docs
 
 ## Application Demo
 https://github.com/user-attachments/assets/1633444b-5ca2-40ad-814f-1ff422a3bcd2
